@@ -12,5 +12,21 @@ document.addEventListener('DOMContentLoaded', ()=> {
     })
     .then(data => {
         displayProducts(data);
-    });
+    })
 });
+//Task 3: Display Product Details Dynamically
+function displayProducts (products){
+    const productContainer = document.getElementById('productContainer');
+    products.forEach(product =>{
+        const productElement = document.createElement('div');
+
+        productElement.innerHTML = `
+        <img src="${product.fields.image[0].url}" alt="${product.fields.name}">
+        <h3>${product.fields.name}</h3>
+        <p>Company: ${product.fields.company}</p>
+        <p>Price: $${(product.fields.price / 100).toFixed(2)}</p>
+    `;
+    productContainer.appendChild(productElement);
+       
+    });
+} 
