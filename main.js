@@ -12,7 +12,5 @@ document.addEventListener('DOMContentLoaded', ()=> {
     })
     .then(data => {
         displayProducts(data);
-    }) .catch(error => {
-
-    })
-})
+    });
+});
